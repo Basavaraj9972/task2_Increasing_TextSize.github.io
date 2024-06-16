@@ -1,0 +1,87 @@
+/* Global reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .logo-item img {
+    width: 100%;
+    height: auto; /* Ensures the image aspect ratio is maintained */
+  }
+  
+  .logo-container {
+    position: relative; /* Ensure the container has a position */
+    overflow: hidden; /* Hide any overflow */
+  }
+  
+  .scrolling-text {
+    position: absolute; /* Absolute positioning for scrolling text */
+    bottom: 10px; /* Adjust this value to fine-tune the distance from the bottom of the image */
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center; /* Center align the text */
+    width: 80%; /* Adjust width as needed */
+  }
+  
+  .scrolling-text h1 {
+    margin: 0;
+    font-size: 2em; /* Initial font size */
+    animation: increase-size 8s linear infinite; /* Only increase size animation */
+    position: relative; /* Relative positioning for pseudo-elements */
+  }
+  
+  .scrolling-text h1 .yellow-underline {
+    position: relative; /* Ensure relative positioning */
+    display: inline-block;
+    overflow: hidden; /* Hide overflow for pseudo-element */
+  }
+  
+  .scrolling-text h1 .yellow-underline s {
+    position: relative; /* Ensure relative positioning */
+    color: transparent; /* Hide original text */
+  }
+  
+  .scrolling-text h1 .yellow-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Adjust this value to fine-tune the scratch line position */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: yellow; /* Yellow color for scratch line */
+    transform: scaleX(0); /* Initial state: hidden */
+    transform-origin: right;
+    animation: scratch-line 1s linear infinite; /* Animation for scratch line */
+  }
+  
+  @keyframes scratch-line {
+    0% {
+      transform: scaleX(0); /* Start with scratch line hidden */
+    }
+    50% {
+      transform: scaleX(1); /* Show scratch line */
+    }
+    100% {
+      transform: scaleX(0); /* Hide scratch line */
+    }
+  }
+  
+  @keyframes increase-size {
+    0% {
+      font-size: 2em; /* Initial font size */
+    }
+    100% {
+      font-size: 6em; /* Increase font size significantly */
+    }
+  }
+  
+  .yellow-text {
+    color: yellow; /* Yellow color for text */
+  }
+  
